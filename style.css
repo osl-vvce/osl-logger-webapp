@@ -1,12 +1,21 @@
-/* Define the color palette and fonts */
+/* Define the color palette and fonts based on the screenshot */
 :root {
     --bg-color: #121212;         /* Dark background */
-    --surface-color: #1e1e1e;   /* Darker card background */
-    --primary-green: #39ff14;   /* Bright neon green */
+    --surface-color: #1e1e1e;   /* Dark card background */
     --text-color: #e0e0e0;      /* Light gray text */
-    --border-color: #2a2a2a;    /* Subtle border */
+    --border-color: #333333;    /* Subtle border */
+    
+    /* Gradient colors from "OSL VVCE" */
+    --accent-pink: #E91E63;
+    --accent-blue: #5E72E4;
+
+    /* Button color from "SEE BLOGS" */
+    --button-color: #EF5350;
+    --button-hover-color: #E57373;
+
+    /* Fonts from screenshot */
+    --font-heading: 'Poppins', sans-serif;
     --font-body: 'Roboto', sans-serif;
-    --font-heading: 'Roboto Mono', monospace;
 }
 
 /* Basic styling for the body */
@@ -17,11 +26,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height for flexibility */
     margin: 0;
+    padding: 20px 0; /* Add some padding for shorter screens */
 }
 
-/* Container for the form, styled like a dark "card" */
+/* Container for the form */
 .form-container {
     background-color: var(--surface-color);
     padding: 30px;
@@ -29,28 +39,40 @@ body {
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     width: 400px;
-    /* This adds the green accent line at the top */
-    border-top: 3px solid var(--primary-green);
+    max-width: 90%; /* Ensure it looks good on mobile */
+    
+    /* Gradient border at the top to match the heading */
+    border-top: 3px solid;
+    border-image: linear-gradient(to right, var(--accent-pink), var(--accent-blue)) 1;
 }
 
 /* Style for the form elements */
 h1 {
     font-family: var(--font-heading);
+    font-weight: 700;
     text-align: center;
-    color: var(--primary-green); /* Green heading */
+    
+    /* This creates the gradient text effect */
+    background: linear-gradient(to right, var(--accent-pink), var(--accent-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 p {
     text-align: center;
-    color: var(--text-color);
-    margin-bottom: 20px;
+    color: var(--accent-blue); /* Matches the "We do Awesome Things!" */
+    font-family: var(--font-heading);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
 }
 
 label {
-    font-family: var(--font-heading); /* Monospaced font for labels */
+    font-family: var(--font-heading);
     display: block;
     margin-bottom: 5px;
     font-weight: 700;
+    color: var(--text-color);
 }
 
 input[type="text"],
@@ -65,27 +87,28 @@ textarea {
     background-color: var(--bg-color); /* Dark input background */
     color: var(--text-color); /* Light input text */
     font-family: var(--font-body);
+    font-size: 1rem;
 }
 
-/* Fix for the time input's native controls on a dark background */
+/* Fixes the time input controls on a dark background */
 input[type="time"] {
     color-scheme: dark;
 }
 
-/* Green glow effect when an input is selected (focused) */
+/* Accent color on focus */
 input[type="text"]:focus,
 input[type="time"]:focus,
 textarea:focus {
     outline: none;
-    border-color: var(--primary-green);
-    box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.5); /* Pink glow */
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: var(--primary-green);
-    color: #000; /* Black text on the bright button */
+    background-color: var(--button-color); /* Coral/red button */
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -95,9 +118,8 @@ button {
     transition: all 0.2s ease-in-out;
 }
 
-/* Hover effect for the button */
 button:hover {
-    background-color: #ffffff;
-    color: #000;
-    box-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+    background-color: var(--button-hover-color); /* Lighter coral */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
