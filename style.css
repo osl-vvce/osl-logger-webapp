@@ -1,7 +1,19 @@
+/* Define the color palette and fonts */
+:root {
+    --bg-color: #121212;         /* Dark background */
+    --surface-color: #1e1e1e;   /* Darker card background */
+    --primary-green: #39ff14;   /* Bright neon green */
+    --text-color: #e0e0e0;      /* Light gray text */
+    --border-color: #2a2a2a;    /* Subtle border */
+    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Roboto Mono', monospace;
+}
+
 /* Basic styling for the body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,31 +21,36 @@ body {
     margin: 0;
 }
 
-/* Container for the form */
+/* Container for the form, styled like a dark "card" */
 .form-container {
-    background-color: #fff;
+    background-color: var(--surface-color);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     width: 400px;
+    /* This adds the green accent line at the top */
+    border-top: 3px solid var(--primary-green);
 }
 
 /* Style for the form elements */
 h1 {
+    font-family: var(--font-heading);
     text-align: center;
-    color: #333;
+    color: var(--primary-green); /* Green heading */
 }
 
 p {
     text-align: center;
-    color: #666;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
 label {
+    font-family: var(--font-heading); /* Monospaced font for labels */
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 input[type="text"],
@@ -42,22 +59,45 @@ textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    box-sizing: border-box; 
+    background-color: var(--bg-color); /* Dark input background */
+    color: var(--text-color); /* Light input text */
+    font-family: var(--font-body);
+}
+
+/* Fix for the time input's native controls on a dark background */
+input[type="time"] {
+    color-scheme: dark;
+}
+
+/* Green glow effect when an input is selected (focused) */
+input[type="text"]:focus,
+input[type="time"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--primary-green);
+    color: #000; /* Black text on the bright button */
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    transition: all 0.2s ease-in-out;
 }
 
+/* Hover effect for the button */
 button:hover {
-    background-color: #0056b3;
+    background-color: #ffffff;
+    color: #000;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
 }
