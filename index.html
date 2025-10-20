@@ -2,39 +2,108 @@
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visitor Check-in</title>
+    <title>OSL VVCE - Visitor Logbook</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="logo-text">
+                    <h1 class="org-name">OSL VVCE</h1>
+                    <p class="tagline">Open Source Lab</p>
+                </div>
+            </div>
+        </header>
 
-    <div class="form-container">
-        <h1>Visitor Check-in</h1>
-        <p>Please fill out the form to check in.</p>
+        <main class="main-content">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 class="form-title">
+                        <i class="fas fa-clipboard-list"></i>
+                        Visitor Logbook
+                    </h2>
+                    <p class="form-subtitle">Please fill out the form to check in</p>
+                </div>
 
-        <form>
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="fullName" required>
+                <form class="visitor-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="fullName">
+                                <i class="fas fa-user"></i>
+                                Full Name
+                            </label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
 
-            <label for="USN">USN:</label>
-            <input type="text" id="USN" name="USN" required>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="USN">
+                                <i class="fas fa-id-card"></i>
+                                USN / ID Number
+                            </label>
+                            <input type="text" id="USN" name="USN" placeholder="Enter your USN or ID" required>
+                        </div>
+                    </div>
 
-            <label for="CheckInTime">Check-in Time:</label>
-            <input type="time" id="CheckInTime" name="CheckInTIme" required>
+                    <div class="form-row two-columns">
+                        <div class="input-group">
+                            <label for="CheckInTime">
+                                <i class="fas fa-clock"></i>
+                                Check-in Time
+                            </label>
+                            <input type="time" id="CheckInTime" name="CheckInTime" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="CheckOutTime">
+                                <i class="fas fa-clock"></i>
+                                Check-out Time
+                            </label>
+                            <input type="time" id="CheckOutTime" name="CheckOutTime">
+                        </div>
+                    </div>
 
-            <label for="CheckOutTime">Check-out Time:</label>
-            <input type="time" id="CheckOutTime" name="CheckOutTIme" required>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="reason">
+                                <i class="fas fa-bullseye"></i>
+                                Purpose of Visit
+                            </label>
+                            <textarea id="reason" name="reason" rows="3" placeholder="Describe the purpose of your visit..." required></textarea>
+                        </div>
+                    </div>
 
-            <label for="reason">Purpose Of Visit:</label>
-            <textarea id="reason" name="reason" rows="4" required></textarea>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="progress">
+                                <i class="fas fa-tasks"></i>
+                                Progress of Work
+                            </label>
+                            <textarea id="progress" name="progress" rows="3" placeholder="Describe your progress or work completed..."></textarea>
+                        </div>
+                    </div>
 
-            <label for="progress">Progress Of Work:</label>
-            <textarea id="progress" name="progress" rows="4" ></textarea>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Submit Entry
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
 
-            <button type="submit">Check In</button>
-        </form>
+        <footer class="app-footer">
+            <p>&copy; 2025 Open Source Lab, VVCE. All rights reserved.</p>
+        </footer>
     </div>
 
 </body>
